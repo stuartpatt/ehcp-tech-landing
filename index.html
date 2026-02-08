@@ -10,8 +10,12 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ehcp.tech">
 
-  <!-- TODO: Replace with real Plausible domain once account is set up -->
-  <!-- <script defer data-domain="ehcp.tech" src="https://plausible.io/js/script.js"></script> -->
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-toFEvipBUYPtyDJ1SV2TX.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
 
   <!-- TODO: Add A/B testing JS (~20 lines) — URL parameter + localStorage variant assignment, tagged in Plausible events -->
 
@@ -670,8 +674,6 @@
     </div>
   </footer>
 
-  <!-- TODO: Uncomment and wire up CTA_Click event tracking once Plausible is configured -->
-  <!--
   <script>
     document.querySelectorAll('.btn-primary').forEach(function(btn) {
       btn.addEventListener('click', function() {
@@ -681,7 +683,6 @@
       });
     });
   </script>
-  -->
 
 </body>
 </html>
