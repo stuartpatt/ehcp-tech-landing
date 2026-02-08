@@ -640,9 +640,12 @@
       <div class="container">
         <h2 id="waitlist-heading" class="section-heading">Be the first to try it</h2>
         <p class="subtext">We'll send you one email when we launch. No spam, no newsletters &mdash; just the nudge you need.</p>
-        <!-- TODO: Replace action URL with real Buttondown form endpoint -->
-        <!-- TODO: Set redirect to thanks.html once Buttondown is configured -->
-        <form class="waitlist-form" action="#" method="post">
+        <form
+          class="waitlist-form"
+          action="https://buttondown.com/api/emails/embed-subscribe/stuartpatt"
+          method="post"
+          referrerpolicy="unsafe-url"
+        >
           <label for="waitlist-email" class="sr-only">Email address</label>
           <input type="email" id="waitlist-email" name="email" placeholder="Your email address" required autocomplete="email">
           <button type="submit" class="btn-primary">Join the Waitlist</button>
