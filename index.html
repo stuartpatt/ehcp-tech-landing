@@ -682,6 +682,27 @@
         }
       });
     });
+
+    document.querySelector('.waitlist-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = e.target;
+      var button = form.querySelector('button');
+      var email = form.querySelector('input[type="email"]').value;
+
+      button.disabled = true;
+      button.textContent = 'Joining...';
+
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'email=' + encodeURIComponent(email),
+        mode: 'no-cors'
+      }).then(function() {
+        window.location.href = '/thanks.html';
+      }).catch(function() {
+        window.location.href = '/thanks.html';
+      });
+    });
   </script>
 
 </body>
