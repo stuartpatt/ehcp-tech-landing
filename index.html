@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ehcp.tech — Submit your EHCP with confidence</title>
+  <meta name="description" content="Finally, the clarity you need. Check your professional reports against what Local Authorities actually look for — before you submit.">
+  <meta property="og:title" content="ehcp.tech — Submit your EHCP with confidence">
+  <meta property="og:description" content="Finally, the clarity you need. Check your professional reports against what Local Authorities actually look for — before you submit.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ehcp.tech">
+
+  <!-- TODO: Replace with real Plausible domain once account is set up -->
+  <!-- <script defer data-domain="ehcp.tech" src="https://plausible.io/js/script.js"></script> -->
+
+  <!-- TODO: Add A/B testing JS (~20 lines) — URL parameter + localStorage variant assignment, tagged in Plausible events -->
+
+  <style>
+    :root {
+      --page-bg: #fafaf9;
+      --card-bg: #ffffff;
+      --text-primary: #1c1917;
+      --accent: #3b82f6;
+      --success: #16a34a;
+      --error: #dc2626;
+      --warning: #f59e0b;
+      --card-radius: 16px;
+      --button-radius: 8px;
+      --text-secondary: #57534e;
+      --border-color: #e7e5e4;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--page-bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ---- Hero ---- */
+    .hero {
+      padding: 64px 0 48px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero .subhead {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 540px;
+      margin: 0 auto 32px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 1.125rem;
+      font-weight: 600;
+      padding: 14px 32px;
+      border: none;
+      border-radius: var(--button-radius);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #2563eb;
+    }
+
+    .trust-badge {
+      margin-bottom: 24px;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+
+    .trust-badge svg {
+      width: 14px;
+      height: 14px;
+      vertical-align: -2px;
+      margin-right: 4px;
+      stroke: var(--success);
+    }
+
+    /* ---- Shared section styles ---- */
+    section {
+      padding: 48px 0;
+    }
+
+    .section-heading {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    /* ---- Problem ---- */
+    .pain-cards {
+      display: grid;
+      gap: 16px;
+    }
+
+    .pain-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--card-radius);
+      padding: 24px;
+    }
+
+    .pain-card .icon {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .pain-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .pain-card p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+    }
+
+    /* ---- How it works ---- */
+    .steps {
+      display: grid;
+      gap: 24px;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--accent);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.125rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-content h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .step-content p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+    }
+
+    /* ---- Sample output ---- */
+    .sample-report {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--card-radius);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+    }
+
+    .sample-report-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sample-report-header h3 {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .sample-report-header .date {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+
+    .evidence-section {
+      padding: 20px 24px;
+      border-left: 4px solid transparent;
+    }
+
+    .evidence-section + .evidence-section {
+      border-top: 1px solid var(--border-color);
+    }
+
+    .evidence-section--green {
+      border-left-color: var(--success);
+    }
+
+    .evidence-section--amber {
+      border-left-color: var(--warning);
+    }
+
+    .evidence-section--red {
+      border-left-color: var(--error);
+    }
+
+    .evidence-section-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .evidence-section-top h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .badge--green {
+      background-color: #dcfce7;
+      color: var(--success);
+    }
+
+    .badge--amber {
+      background-color: #fef9c3;
+      color: #92400e;
+    }
+
+    .badge--red {
+      background-color: #fee2e2;
+      color: var(--error);
+    }
+
+    .evidence-section p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ---- Pricing ---- */
+    .pricing-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--card-radius);
+      padding: 32px;
+      text-align: center;
+    }
+
+    .price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .price-label {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .price-comparison {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .price-note {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+
+    /* ---- Trust ---- */
+    .trust-list {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+    }
+
+    .trust-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--card-radius);
+      padding: 20px 24px;
+    }
+
+    .trust-item svg {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      stroke: var(--success);
+      margin-top: 2px;
+    }
+
+    .trust-item p {
+      font-size: 0.9375rem;
+    }
+
+    /* ---- Founder ---- */
+    .founder {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--card-radius);
+      padding: 32px;
+    }
+
+    .founder p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      text-align: center;
+    }
+
+    /* ---- Waitlist ---- */
+    .waitlist {
+      text-align: center;
+    }
+
+    .waitlist .subtext {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .waitlist-form {
+      display: flex;
+      gap: 12px;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .waitlist-form input[type="email"] {
+      flex: 1;
+      padding: 12px 16px;
+      font-size: 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--button-radius);
+      outline: none;
+      font-family: inherit;
+      background: var(--card-bg);
+      color: var(--text-primary);
+      min-width: 0;
+    }
+
+    .waitlist-form input[type="email"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    .waitlist-form button {
+      flex-shrink: 0;
+    }
+
+    /* ---- Disclaimer ---- */
+    .disclaimer {
+      padding: 32px 0;
+    }
+
+    .disclaimer p {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ---- Footer ---- */
+    .site-footer {
+      padding: 24px 0;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .site-footer p {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+
+    .site-footer a {
+      color: var(--text-secondary);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .site-footer a:hover {
+      color: var(--text-primary);
+    }
+
+    /* ---- Screen-reader only ---- */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ---- Responsive ---- */
+    @media (min-width: 640px) {
+      .hero {
+        padding: 80px 0 56px;
+      }
+
+      .hero h1 {
+        font-size: 2.75rem;
+      }
+
+      .hero .subhead {
+        font-size: 1.25rem;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+
+      .section-heading {
+        font-size: 1.75rem;
+      }
+
+      .pain-cards {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .waitlist-form {
+        flex-direction: row;
+      }
+    }
+
+    @media (max-width: 639px) {
+      .waitlist-form {
+        flex-direction: column;
+      }
+
+      .waitlist-form button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Hero -->
+  <header class="hero">
+    <div class="container">
+      <h1>Submit your EHCP with confidence, not&nbsp;crossed&nbsp;fingers</h1>
+      <p class="subhead">You've done everything right. The appointments, the assessments, the reports. Now make sure that evidence is actually strong enough &mdash; before the panel sees it.</p>
+      <p class="trust-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Your reports are never stored. Deleted after every analysis.
+      </p>
+      <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 2. Problem -->
+    <section aria-labelledby="problem-heading">
+      <div class="container">
+        <h2 id="problem-heading" class="section-heading">You shouldn't have to wonder<br>if your evidence is enough</h2>
+        <div class="pain-cards">
+          <div class="pain-card">
+            <div class="icon" aria-hidden="true">&#163;</div>
+            <h3>You've already invested so much</h3>
+            <p>The assessments, the waiting lists, the cost. After all of that, you deserve to know your reports will actually do their job when it matters most.</p>
+          </div>
+          <div class="pain-card">
+            <div class="icon" aria-hidden="true">&#63;</div>
+            <h3>Nobody tells you what "good enough" looks like</h3>
+            <p>The LA panel has expectations, but they're rarely spelled out. You're left in the dark, hoping you've ticked the right boxes.</p>
+          </div>
+          <div class="pain-card">
+            <div class="icon" aria-hidden="true">&#9200;</div>
+            <h3>The uncertainty is the hardest part</h3>
+            <p>Not knowing whether your evidence is strong enough &mdash; and not finding out until it's too late to do anything about it. That knot in your stomach shouldn't be part of the process.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. How It Works -->
+    <section aria-labelledby="how-heading">
+      <div class="container">
+        <h2 id="how-heading" class="section-heading">Clarity in three simple steps</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <h3>Share your report</h3>
+              <p>Upload the PDF &mdash; educational psychologist, speech &amp; language therapist, occupational therapist, or any other professional assessment.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <h3>We do the worrying for you</h3>
+              <p>Your report is checked against the evidence standards that Local Authority panels actually look for &mdash; section by section.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <h3>Know exactly where you stand</h3>
+              <p>A plain-English breakdown of what's strong, what could be stronger, and exactly what to ask your professional for if anything's missing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Sample Output -->
+    <section aria-labelledby="sample-heading">
+      <div class="container">
+        <h2 id="sample-heading" class="section-heading">No more guessing. This is what clarity looks like.</h2>
+        <div class="sample-report" role="img" aria-label="Example evidence report showing three EHCP sections with Ready, Needs Work, and Not Ready assessments">
+          <div class="sample-report-header">
+            <h3>Evidence Report</h3>
+            <span class="date">12 Jan 2025</span>
+          </div>
+          <div class="evidence-section evidence-section--green">
+            <div class="evidence-section-top">
+              <h4>Section B &mdash; Education Needs</h4>
+              <span class="badge badge--green">Ready</span>
+            </div>
+            <p>This report clearly identifies specific learning difficulties and their impact on classroom access. Quantified data from standardised assessments is included.</p>
+          </div>
+          <div class="evidence-section evidence-section--amber">
+            <div class="evidence-section-top">
+              <h4>Section F &mdash; Education Provision</h4>
+              <span class="badge badge--amber">Needs Work</span>
+            </div>
+            <p>The report recommends interventions but lacks specificity. Consider asking your professional to include: frequency of sessions, group size, and who should deliver the support.</p>
+          </div>
+          <div class="evidence-section evidence-section--red">
+            <div class="evidence-section-top">
+              <h4>Section E &mdash; Health Needs</h4>
+              <span class="badge badge--red">Not Ready</span>
+            </div>
+            <p>No occupational therapy assessment found. If your child has sensory processing needs, this section will need a dedicated OT report.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Pricing -->
+    <section aria-labelledby="pricing-heading">
+      <div class="container">
+        <h2 id="pricing-heading" class="section-heading">One small step to make sure it all&nbsp;counts</h2>
+        <div class="pricing-card">
+          <div class="price">&pound;7.99</div>
+          <div class="price-label">per report</div>
+          <p class="price-comparison">The clarity to know your evidence is ready &mdash; and the confidence to submit it without second-guessing yourself.</p>
+          <p class="price-note">No subscription. No hidden costs. Just reassurance when you need it most.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Privacy & Trust -->
+    <section aria-labelledby="trust-heading">
+      <div class="container">
+        <h2 id="trust-heading" class="section-heading">We treat your child's data the way you&nbsp;would</h2>
+        <ul class="trust-list">
+          <li class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <p>Your report is deleted the moment the analysis is complete. We don't keep it, we don't store it, it's gone.</p>
+          </li>
+          <li class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <p>Everything is processed in UK data centres. Your child's information never leaves the country.</p>
+          </li>
+          <li class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <p>We're parents too. Protecting your family's privacy isn't a feature &mdash; it's a promise.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. Built by Parents -->
+    <section aria-labelledby="founder-heading">
+      <div class="container">
+        <h2 id="founder-heading" class="section-heading">Built by SEND parents, for SEND parents</h2>
+        <div class="founder">
+          <p>We've sat in the same waiting rooms, filled in the same forms, and felt the same uncertainty about whether our evidence was strong enough. That's why we built this &mdash; because no parent should have to navigate this process without knowing where they stand.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Waitlist CTA -->
+    <section id="waitlist" class="waitlist" aria-labelledby="waitlist-heading">
+      <div class="container">
+        <h2 id="waitlist-heading" class="section-heading">Be the first to try it</h2>
+        <p class="subtext">We'll send you one email when we launch. No spam, no newsletters &mdash; just the nudge you need.</p>
+        <!-- TODO: Replace action URL with real Buttondown form endpoint -->
+        <!-- TODO: Set redirect to thanks.html once Buttondown is configured -->
+        <form class="waitlist-form" action="#" method="post">
+          <label for="waitlist-email" class="sr-only">Email address</label>
+          <input type="email" id="waitlist-email" name="email" placeholder="Your email address" required autocomplete="email">
+          <button type="submit" class="btn-primary">Join the Waitlist</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 9. Disclaimer -->
+    <section id="disclaimer" class="disclaimer" aria-labelledby="disclaimer-heading">
+      <div class="container">
+        <h2 id="disclaimer-heading" class="sr-only">Disclaimer</h2>
+        <p>This tool provides informational guidance only. It does not constitute legal advice. For legal matters related to EHCPs, please consult a qualified SEND solicitor or advocate.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 10. Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 ehcp.tech &middot; <a href="#disclaimer">Disclaimer</a></p>
+    </div>
+  </footer>
+
+  <!-- TODO: Uncomment and wire up CTA_Click event tracking once Plausible is configured -->
+  <!--
+  <script>
+    document.querySelectorAll('.btn-primary').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (window.plausible) {
+          plausible('CTA_Click');
+        }
+      });
+    });
+  </script>
+  -->
+
+</body>
+</html>

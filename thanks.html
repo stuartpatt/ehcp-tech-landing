@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're on the list! — ehcp.tech</title>
+  <meta name="description" content="Thanks for signing up. We'll let you know when ehcp.tech launches.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="You're on the list! — ehcp.tech">
+  <meta property="og:description" content="Thanks for signing up. We'll let you know when ehcp.tech launches.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ehcp.tech/thanks.html">
+
+  <!-- TODO: Replace with real Plausible domain once account is set up -->
+  <!-- <script defer data-domain="ehcp.tech" src="https://plausible.io/js/script.js"></script> -->
+
+  <style>
+    :root {
+      --page-bg: #fafaf9;
+      --card-bg: #ffffff;
+      --text-primary: #1c1917;
+      --accent: #3b82f6;
+      --success: #16a34a;
+      --error: #dc2626;
+      --warning: #f59e0b;
+      --card-radius: 16px;
+      --button-radius: 8px;
+      --text-secondary: #57534e;
+      --border-color: #e7e5e4;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--page-bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: var(--card-radius);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+      padding: 2.5rem 2rem;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .success-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      background-color: #f0fdf4;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+    }
+
+    .success-icon svg {
+      width: 32px;
+      height: 32px;
+      color: var(--success);
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .subtext {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .share-section {
+      border-top: 1px solid var(--border-color);
+      padding-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .share-section p {
+      font-size: 0.95rem;
+      color: #78716c;
+      margin-bottom: 0.75rem;
+    }
+
+    .share-section .share-prompt {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 0.95rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.15s ease;
+    }
+
+    .back-link:hover {
+      opacity: 0.8;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #a8a29e;
+    }
+
+    @media (min-width: 640px) {
+      .card {
+        padding: 3rem 2.5rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="card">
+      <div class="success-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>
+      </div>
+
+      <h1>You're on the list!</h1>
+      <p class="subtext">We'll send you one email when ehcp.tech launches. No spam, ever.</p>
+
+      <div class="share-section">
+        <p class="share-prompt">Know someone who'd find this useful?</p>
+        <p>If you know a parent or professional navigating the EHCP process, feel free to share the link. It might make a real difference for them.</p>
+      </div>
+
+      <a href="/" class="back-link">&larr; Back to ehcp.tech</a>
+    </div>
+  </main>
+
+  <footer>&copy; 2025 ehcp.tech</footer>
+</body>
+</html>
